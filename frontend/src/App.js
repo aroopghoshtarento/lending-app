@@ -6,14 +6,16 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
+import Select from '@mui/material/Select';
 import InputLabel from '@mui/material/InputLabel';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert, { AlertProps } from '@mui/material/Alert';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
+
 
 export default function App() {
   const BASE_URL = 'http://localhost:8000/'
@@ -39,6 +41,9 @@ export default function App() {
       setLoading(false)
     }).catch(error => {
       setError(error);
+      setTimeout(()=>{
+        setError(null);
+      },1000)
       setLoading(false)
     });
   }
@@ -51,6 +56,9 @@ export default function App() {
       setLoading(false)
     }).catch(error => {
       setError(error);
+      setTimeout(()=>{
+        setError(null);
+      },1000)
       setLoading(false)
     });
   }
@@ -71,6 +79,9 @@ export default function App() {
       setLoading(false)
     }).catch(error => {
       setError(error);
+      setTimeout(()=>{
+        setError(null);
+      },1000)
       setLoading(false)
     });
   }
@@ -277,6 +288,15 @@ export default function App() {
     )
   }
 
+  const showError = () => {
+    console.log('err', error)
+    return (<Snackbar open={error} autoHideDuration={6000} anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }} >
+      <MuiAlert severity="error" sx={{ width: '100%' }}>
+        {error.message}
+      </MuiAlert>
+    </Snackbar>)
+  }
+
   const showLoader = () => {
     return (<CircularProgress />)
   }
@@ -296,6 +316,7 @@ export default function App() {
       {!loading && pageNo === 2 && secondPage()}
       {!loading && pageNo === 3 && thirdPage()}
       {!loading && pageNo === 4 && fourthPage()}
+      {error && showError()}
 
     </div>
   );
