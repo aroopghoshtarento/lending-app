@@ -13,7 +13,7 @@ In the root directory, you can run:
 ### `npm run start:dev`
 
 This will start application in 8000 port.\
-Open [http://localhost:8000/api](http://localhost:8000/api) to access application.
+Open [http://localhost:8000/api](http://localhost:8000/api) to view the Swagger file.
 
 For Builing docker image
 
@@ -30,6 +30,6 @@ In the root directory, you can run:
 ### `npm start`
 
 This will start application in 3000 port.\
-Open [http://localhost:3000](http://localhost:3000) to view the Swagger file.
+Open [http://localhost:3000](http://localhost:3000) to access application.
 
 
