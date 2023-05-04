@@ -2,6 +2,10 @@
 
 This project contains backend and frontend separate folders. Minimum node version required is 16
 
+## Technologies used
+
+For Backend I have used NestJs framework and for Frontend I have used ReactJS
+
 ## Running Backend
 
 In the root directory, you can run:
